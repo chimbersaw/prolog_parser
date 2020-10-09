@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
 import sys
-from lex import *
+from lex import getLex
 
 
 class Parser:
@@ -118,6 +119,11 @@ class Parser:
         return 0
 
 
-S = getLex(sys.argv[1])
-parser = Parser()
-exit(parser.parse_S(S))
+def main(args):
+    s = getLex(args[0])
+    parser = Parser()
+    return parser.parse_S(s)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
